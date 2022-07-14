@@ -1,0 +1,33 @@
+﻿<Window x:Class="ComicFileManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComicFileManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="465.098" Width="766.514">
+    <Grid Margin="0,0,-8,-6" Height="433" VerticalAlignment="Top" HorizontalAlignment="Left" Width="767">
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="256">
+            <TextBox.InputBindings>
+                <KeyBinding Gesture="Ctrl+F" Command="{Binding Search}" />
+            </TextBox.InputBindings>
+        </TextBox>
+        <Button x:Name="btnSearch" Content="検索実行" HorizontalAlignment="Left" Margin="278,6,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="lblFileCounts" Content="ファイル数 {0}：その他 {1}" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Width="359"/>
+        <ListBox x:Name="lstFiles" HorizontalAlignment="Left" Height="153" Margin="10,262,0,0" VerticalAlignment="Top" Width="343"/>
+        <ListBox x:Name="lstFolders" HorizontalAlignment="Left" Height="193" Margin="10,38,0,0" VerticalAlignment="Top" Width="343"/>
+        <Label x:Name="lblFolderName" Content="フォルダー名：" HorizontalAlignment="Left" Margin="399,10,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lstDrop" HorizontalAlignment="Left" Height="193" Margin="399,38,0,0" VerticalAlignment="Top" Width="344"/>
+        <Label x:Name="lblProgress" Content="同期済み / 総ファイル数" HorizontalAlignment="Left" Margin="595,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTargetFolder" Height="23" Margin="399,250,28,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="コピー対象のフォルダ名" Margin="394,231,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <CheckBox x:Name="chkTargetFolder" Content="このフォルダに格納する" HorizontalAlignment="Left" Margin="590,273,0,0" VerticalAlignment="Top"/>
+        <Label Content="ローカルフォルダ" Margin="394,278,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtLocalFolder" HorizontalAlignment="Left" Height="23" Margin="399,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
+        <Label Content="サーバーフォルダ" Margin="394,318,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtServerFolder" HorizontalAlignment="Left" Height="23" Margin="399,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
+        <Label Content="リクエスト送信先" Margin="394,361,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtRequestURL" HorizontalAlignment="Left" Height="23" Margin="399,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
+
+    </Grid>
+</Window>

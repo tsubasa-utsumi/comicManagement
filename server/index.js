@@ -25,8 +25,8 @@ const sindex = require('serve-index')
 const options = {
 	icons: true,
     showUp: false,
-	filter: (filename, index, list, path) => {
-		return filename !== '@eaDir' 
+	filter: (filename, index, list, path, isDirectory) => {
+		return isDirectory || filename !== '@eaDir' && filename.endsWith(".zip")
 	},
 	template: __dirname + '/assets/template.html'
 }

@@ -3,7 +3,6 @@ const basicAuth = require('express-basic-auth')
 const app = express()
 const PORT = 53994
 
-const directory = "./symbolic"
 require('dotenv').config()
 if (!(process.env.u && process.env.p)) {
   console.log("invalid env")

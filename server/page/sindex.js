@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const directory = "./symbolic"
 
 // serve-indexの設定
 const sindex = require('serve-index')
@@ -13,7 +12,7 @@ const options = {
 	template: __dirname + '/../assets/template.html'
 }
 
-router.use(express.static(directory))
-router.use(sindex(directory, options))
+router.use(express.static(process.env.symlink))
+router.use(sindex(process.env.symlink, options))
 
 module.exports = router;

@@ -30,5 +30,6 @@ const options = {
 	template: __dirname + '/asset/template.html'
 }
 
+app.use(express.static(directory))
 app.use(sindex(directory, options))
 app.listen(PORT)

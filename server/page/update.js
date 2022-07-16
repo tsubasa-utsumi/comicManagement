@@ -6,7 +6,7 @@ const fs = require('fs')
 const limit = process.env.update_files
 
 router.get("/", (req, res) => {
-  const data = fs.readFileSync(path.join(__dirname, "/../symbolic/Comic", process.env.update_file)).toString()
+  const data = fs.readFileSync(path.join(__dirname, "..", process.env.symlink, process.env.update_file)).toString()
   const lines = data.split("\r\n")
   var targets = []
   var count = 0

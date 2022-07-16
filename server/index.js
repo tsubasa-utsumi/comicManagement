@@ -5,6 +5,10 @@ const PORT = 53994
 
 const directory = "./symbolic"
 require('dotenv').config()
+if (!(process.env.u && process.env.p)) {
+    console.log("invalid env")
+    process.exit(1)
+}
 
 // basic認証
 app.use(basicAuth({

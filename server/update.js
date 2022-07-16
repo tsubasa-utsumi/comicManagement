@@ -6,7 +6,7 @@ const fs = require('fs')
 const limit = process.env.update_files
 
 router.get("/", (req, res) => {
-  const data = fs.readFileSync(path.join(__dirname, "..", process.env.symlink, process.env.update_file)).toString()
+  const data = fs.readFileSync(path.join(__dirname, process.env.symlink, process.env.update_file)).toString()
   const lines = data.split("\r\n")
   var targets = []
   var count = 0
@@ -27,13 +27,13 @@ router.get("/", (req, res) => {
       which = "連載終了"
     }
     const filename = t[1].split("\\")
-    const p = path.join("Comic", which, filename[0], filename[1])
-    const url = `<a href="${p}">${filename[1]}</a>`
+    const p = encodeURI(path.join("Comic", which, filename[0], filename[1]))
+    const url = `<li><a href="${p}" booktitle="${filename[1]}">${filename[1]}</a></li>`
     converted.push(url)
   });
 
-  var html = fs.readFileSync(path.join(__dirname, "/../assets", "update.html")).toString()
-  html = html.replace("{files}", converted.join("<br />"))
+  var html = fs.readFileSync(path.join(__dirname, "assets", "update.html")).toString()
+  html = html.replace("{files}", converted.join(""))
 
   res.send(html)
 })

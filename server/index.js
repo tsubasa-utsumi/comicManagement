@@ -24,7 +24,7 @@ app.use(basicAuth({
 }))
 
 app.use(express.static("assets"))
-app.use("/comic", require("./page/sindex.js"))
-app.use("/update", require("./page/update.js"))
+app.use("/comic", require("./sindex.js"))
+app.use("/update", require("./update.js"))
 
 app.listen(PORT)

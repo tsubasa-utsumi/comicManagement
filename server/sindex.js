@@ -7,9 +7,9 @@ const options = {
 	icons: true,
     showUp: false,
 	filter: (filename, index, list, path, isDirectory) => {
-		return isDirectory || filename !== '@eaDir' && filename.endsWith(".zip")
+		return filename !== '@eaDir' && isDirectory || filename.endsWith(".zip")
 	},
-	template: __dirname + '/../assets/template.html'
+	template: __dirname + '/assets/template.html'
 }
 
 router.use(express.static(process.env.symlink))

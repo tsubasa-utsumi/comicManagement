@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const basicAuth = require('express-basic-auth')
 const app = express()
@@ -24,10 +25,11 @@ app.use(basicAuth({
 const sindex = require('serve-index')
 const options = {
 	icons: true,
+    stylesheet: path.join(__dirname, 'assets', 'style.css'),
 	filter: (filename, index, list, path) => {
 		return filename !== '@eaDir' 
 	},
-	template: __dirname + '/asset/template.html'
+	template: __dirname + '/assets/template.html'
 }
 
 app.use(express.static(directory))

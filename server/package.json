@@ -13,7 +13,7 @@
     "express": "^4.18.1",
     "express-basic-auth": "^1.2.1",
     "passport": "^0.6.0",
-    "serve-index": "^1.9.1"
+    "serve-index": "git+https://github.com/tsubasa-utsumi/serve-index.git"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

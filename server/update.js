@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
       which = "連載終了"
     }
     const filename = t[1].split("\\")
-    const p = encodeURI(path.join("Comic", which, filename[0], filename[1]))
+    const p = encodeURI(path.join(which, filename[0], filename[1]))
     const url = `<li><a href="${p}" booktitle="${filename[1]}">${filename[1]}</a></li>`
     converted.push(url)
   });

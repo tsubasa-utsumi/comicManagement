@@ -4,7 +4,7 @@ const app = express()
 const PORT = 53994
 
 require('dotenv').config()
-if (!(process.env.u && process.env.p)) {
+if (!(process.env.u && process.env.p && process.env.symlink && process.env.update_file && process.env.update_files)) {
   console.log("invalid env")
   process.exit(1)
 }

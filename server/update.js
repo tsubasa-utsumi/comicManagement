@@ -1,18 +1,27 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs-extra')
 
-const limit = process.env.update_files
+router.get("/api/generate", async (req, res) => {
+  // 全更新するのでまっさらに
+  await deleteDir(path.join(__dirname, "assets", "updates", "files"))
+  fs.mkdirSync(path.join(__dirname, "assets", "updates", "files"))
 
-router.get("/api/generate", (req, res) => {
+  const limit = new Date()
+  limit.setMonth(limit.getMonth() - process.env.update_month)
   const data = fs.readFileSync(path.join(__dirname, process.env.symlink, process.env.update_file)).toString().trim()
   const lines = data.split("\r\n")
 
   var perDay = {}
   lines.forEach(el => {
     if (el.indexOf("CopyInfo") > 0) {
-      const day = el.substring(1, 11).replaceAll("/", "")
+      // 日付関連の処理(nヶ月前なら切り捨て)
+      var day = el.substring(1, 11)
+      const paste = new Date(day.replaceAll("/", "-"))
+      if (limit > paste) return
+      day = day.replaceAll("/", "")
+
       var isEnd = el.indexOf("連載中") < 0
       const t = el.split("\t")[1].split("\\")
       perDay[day] = perDay[day] ? perDay[day] : []
@@ -36,7 +45,7 @@ router.get("/api/generate", (req, res) => {
       files.push(file)
     })
     html = html.replace("{files}", files.join("\n"))
-    fs.writeFileSync(path.join(__dirname, "assets", "updates", ar + ".html"), html)
+    fs.writeFileSync(path.join(__dirname, "assets", "updates", "files", ar + ".html"), html)
   })
 
   var update = fs.readFileSync(path.join(__dirname, "assets", "updates", "updates_template.html")).toString()
@@ -52,9 +61,16 @@ router.get("/", (req, res) => {
 
 router.get("/:day", (req, res) => {
   if (req.params.day == "null") return
-  res.sendFile(path.join(__dirname, "assets", "updates", req.params.day + ".html"))
+  res.sendFile(path.join(__dirname, "assets", "updates", "files", req.params.day + ".html"))
 })
 
+async function deleteDir(src) {
+  try {
+    await fs.remove(src)
+  } catch (err) {
+    console.error(err)
+  }
+}
 
 router.use(express.static(process.env.symlink))
 router.use(express.static("assets"))

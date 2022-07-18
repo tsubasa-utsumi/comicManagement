@@ -3,7 +3,7 @@ const basicAuth = require('express-basic-auth')
 const app = express()
 require('dotenv').config()
 
-if (!(process.env.port && process.env.u && process.env.p && process.env.symlink && process.env.update_file && process.env.update_files)) {
+if (!(process.env.port && process.env.u && process.env.p && process.env.symlink && process.env.update_file && process.env.update_month)) {
   console.log("invalid env")
   process.exit(1)
 }

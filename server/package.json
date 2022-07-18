@@ -12,6 +12,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-basic-auth": "^1.2.1",
+    "fs-extra": "^10.1.0",
     "passport": "^0.6.0",
     "serve-index": "git+https://github.com/tsubasa-utsumi/serve-index.git"
   },

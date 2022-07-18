@@ -18,12 +18,26 @@
 - symbolicという名前でシンボリックリンクを配置
   - ln -s 見せたい先のディレクトリ名 symbolic
   - このディレクトリが対象となる
-- .envファイルを下記のように書き換えて、ポート番号やBasic認証用のユーザ名とパスワード、シンボリックリンク、新刊情報のファイル、新刊を何冊表示するかを設定
+- .envファイルを下記のように書き換えて下記の設定を行う
+  - ポート番号
+    - port
+  - Basic認証用のユーザ名とパスワード
+    - u
+    - p
+  - シンボリックリンク
+    - symlink
+  - 新刊情報のファイル
+    - update_file
+  - 新刊を何ヶ月分表示するか
+    - update_month
+  - シノロジーかどうか(何故かWSLとSynologyで表示されるURLが違うための苦肉の策)
+    - synology
 ```
 port=ポート番号
 u=ユーザ名
 p=パスワード
-symlink=symbolic
+symlink=シンボリックリンク
 update_file=update.txt
-update_files=200
+update_month=6
+synology=false
 ```

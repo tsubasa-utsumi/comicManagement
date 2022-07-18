@@ -1,7 +1,7 @@
 # private
 symbolic
-assets/update.html
-assets/updates
+server/assets/update.html
+server/assets/updates/files
 
 # Logs
 logs

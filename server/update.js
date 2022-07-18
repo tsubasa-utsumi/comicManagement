@@ -25,7 +25,7 @@ router.get("/api/generate", (req, res) => {
   })
 
   var updates = []
-  const syno = process.env.synology === "true" ? "updates/" : ""
+  const syno = process.env.synology === "true" ? "update/" : ""
   Object.keys(perDay).forEach(ar => {
     var html = fs.readFileSync(path.join(__dirname, "assets", "updates", "updates_template.html")).toString()
     var files = []

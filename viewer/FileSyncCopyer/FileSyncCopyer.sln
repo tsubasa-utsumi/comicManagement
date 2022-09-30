@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSyncCopyer", "FileSyncCopyer\FileSyncCopyer.csproj", "{2186E472-CBF9-4900-8890-F10B3E53FEA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64513D5C-90EC-4A7C-BA27-CDB3638AFFA3}"
+	ProjectSection(SolutionItems) = preProject
+		FileSyncCopyer.vsmdi = FileSyncCopyer.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Debug|Any CPU.Build.0 = Debug|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Debug|x86.ActiveCfg = Debug|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Debug|x86.Build.0 = Debug|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Release|Any CPU.ActiveCfg = Release|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Release|Mixed Platforms.Build.0 = Release|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Release|x86.ActiveCfg = Release|x86
+		{2186E472-CBF9-4900-8890-F10B3E53FEA1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8BC54BE-495F-4F43-8FB6-5669230969A4}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = FileSyncCopyer.vsmdi
+	EndGlobalSection
+EndGlobal

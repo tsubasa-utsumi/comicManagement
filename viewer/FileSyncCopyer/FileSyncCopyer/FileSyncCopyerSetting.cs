@@ -18,6 +18,9 @@ namespace FileSyncCopyer
         private bool _mutexEnable = true;
         private string _historyFileName = "";
         private List<string> _additionalHistoryFilePath = new List<string>();
+        private string _updateServer = "";
+        private string _updateUser = "";
+        private string _updatePass = "";
 
         /// <summary>
         /// メインPCのパス
@@ -81,6 +84,24 @@ namespace FileSyncCopyer
         {
             get { return _additionalHistoryFilePath; }
             set { _additionalHistoryFilePath = value; }
+        }
+
+        public string UpdateServer
+        {
+            get { return _updateServer; }
+            set { _updateServer = value; }
+        }
+
+        public string UpdateUser
+        {
+            get { return _updateUser; }
+            set { _updateUser = value; }
+        }
+
+        public string UpdatePass
+        {
+            get { return _updatePass; }
+            set { _updatePass = value; }
         }
     }
 }

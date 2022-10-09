@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Net.Http;
+using System.Text;
 
 namespace FileSyncCopyer
 {
@@ -1233,7 +1231,7 @@ namespace FileSyncCopyer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        async private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ChangeTextBoxColorThread != null)
             {
@@ -1268,6 +1266,24 @@ namespace FileSyncCopyer
                         {
                         }
                     }
+                }
+
+                // サーバーの新作更新をする
+                if (string.IsNullOrEmpty(setting.UpdateServer) || string.IsNullOrEmpty(setting.UpdateUser) || string.IsNullOrEmpty(setting.UpdatePass)) return;
+
+                var req = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri(setting.UpdateServer)
+                };
+                req.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(
+                    "Basic",
+                    Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", setting.UpdateUser, setting.UpdatePass)))
+                );
+
+                using (var client = new HttpClient())
+                {
+                    await client.SendAsync(req);
                 }
             }
         }
